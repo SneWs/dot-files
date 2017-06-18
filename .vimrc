@@ -85,6 +85,7 @@ syntax on
 set tabstop=4 " Tab config
 set shiftwidth=4
 set expandtab
+set number
 
 " YCM Config
 let g:ycm_complete_in_comments=0
@@ -96,6 +97,9 @@ let g:ycm_seed_identifiers_with_syntax=1
 
 " Toggle h/cpp
 nnoremap <A-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+" Open BufExplorer
+nnoremap <C-o> :BufExplorer<CR>
 
 " Fix backspace and allow it to modify 'anywhere'
 set backspace=indent,eol,start
