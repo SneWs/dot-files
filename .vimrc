@@ -84,9 +84,6 @@ set tabstop=4 " Tab config
 set shiftwidth=4
 set expandtab
 
-" Clang format
-map <C-K> :py3file /usr/share/vim/addons/syntax/clang-format-3.9.py<CR>
-
 " YCM Config
 let g:ycm_complete_in_comments=0
 let g:ycm_collect_identifiers_from_tags_files=1
