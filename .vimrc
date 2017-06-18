@@ -38,6 +38,8 @@ Plugin 'flazz/vim-colorschemes'
 
 " Language extensions
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " Git integration
 Plugin 'tpope/vim-fugitive'
@@ -97,6 +99,10 @@ nnoremap <A-o> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " Fix backspace and allow it to modify 'anywhere'
 set backspace=indent,eol,start
+
+" Markdown related items
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
