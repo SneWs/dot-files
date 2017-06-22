@@ -94,6 +94,10 @@ set completeopt-=preview
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
+nnoremap <leader>jg :YcmCompleter GoTo<CR>
+nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>jf : YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jt :YcmCompleter GetType<CR>
 
 " Toggle h/cpp
 nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
