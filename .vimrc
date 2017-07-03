@@ -86,6 +86,9 @@ set tabstop=4 " Tab config
 set shiftwidth=4
 set expandtab
 set number
+noremap <leader>cr :pyf /usr/bin/clang-rename.py<cr> " Clang rename
+map <C-I> :pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<cr> " Clang format
+imap <C-I> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<cr> " Clang format 
 
 " YCM Config
 let g:ycm_complete_in_comments=0
@@ -114,7 +117,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=Hack:h10
+    set guifont=Hack\ 11
     set guioptions -=T
     set guioptions -=L
 endif
