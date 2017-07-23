@@ -4,6 +4,9 @@ set nocompatible
 set encoding=utf-8
 set fileencoding=utf-8
 
+" Temp and swap files
+set noswapfile
+
 " Whitespace and such
 set nowrap
 
