@@ -9,6 +9,7 @@ set noswapfile
 
 " Whitespace and such
 set nowrap
+set formatoptions-=tc 
 
 " Project specific vimrc file support
 set exrc
