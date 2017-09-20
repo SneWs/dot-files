@@ -45,6 +45,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'craigemery/vim-autotag'
 
 " Git integration
 Plugin 'tpope/vim-fugitive'
