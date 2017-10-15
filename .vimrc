@@ -75,7 +75,7 @@ filetype on
 
 " Colors and other visual goodies
 colorscheme gotham
-let g:airline_theme='jellybeans'
+let g:airline_theme='badwolf'
 
 " Statusbar config
 set laststatus=2
