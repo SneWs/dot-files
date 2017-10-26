@@ -77,7 +77,7 @@ filetype on
 set textwidth=0 wrapmargin=0
 
 " Colors and other visual goodies
-colorscheme harlequin
+colorscheme obsidian
 let g:airline_theme='bubblegum'
 
 " Statusbar config
