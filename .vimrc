@@ -73,6 +73,9 @@ filetype on
 
 " General configuration
 
+" Disable automatic insertion of new lines since it's bonkers behavior.
+set textwidth=0 wrapmargin=0
+
 " Colors and other visual goodies
 colorscheme harlequin
 let g:airline_theme='bubblegum'
@@ -123,7 +126,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=Hack\ 11
+    set guifont=Hack:h10:cANSI:qDRAFT
     set guioptions -=T
     set guioptions -=L
 endif
