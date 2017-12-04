@@ -102,11 +102,9 @@ set shiftwidth=4
 set expandtab
 set number
 
-" Clang tooling
-noremap <leader>cr :pyf /home/snews/Bin/clang-rename.py<cr> " Clang rename
-map <C-I> :pyf /home/snews/Bin/clang-format.py<cr>
-imap <C-I> <c-o>:pyf /home/snews/Bin/clang-format.py<cr>
-
+noremap <leader>cr :pyf clang-rename.py<cr> " Clang rename
+map <C-I> :pyf clang-format.py<cr> " Clang format
+imap <C-I> <c-o>:pyf clang-format.py<cr> " Clang format 
 
 " YCM Config
 let g:ycm_complete_in_comments=0
