@@ -6,6 +6,7 @@ set fileencoding=utf-8
 
 " Temp and swap files
 set noswapfile
+set nobackup
 
 " Whitespace and such
 set nowrap
@@ -126,7 +127,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=Hack:h10:cANSI:qDRAFT
+    set guifont=Hack\ 10
     set guioptions -=T
     set guioptions -=L
 endif
