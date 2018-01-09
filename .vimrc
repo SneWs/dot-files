@@ -78,8 +78,8 @@ filetype on
 set textwidth=0 wrapmargin=0
 
 " Colors and other visual goodies
-colorscheme obsidian
-let g:airline_theme='bubblegum'
+colorscheme molokai_dark
+let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=1
 let g:Powerline_symbols='unicode'
 
