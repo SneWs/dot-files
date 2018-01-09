@@ -80,6 +80,8 @@ set textwidth=0 wrapmargin=0
 " Colors and other visual goodies
 colorscheme obsidian
 let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts=1
+let g:Powerline_symbols='unicode'
 
 " Statusbar config
 set laststatus=2
