@@ -92,6 +92,9 @@ silent! map <F3> :NERDTreeFind<CR>
 let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeQuitOnOpen = 1
 
+" Ctrl-P tweaks
+let g:ctrlp_max_files=0
+
 " Coding
 syntax on
 set tabstop=4 " Tab config
