@@ -101,9 +101,12 @@ set tabstop=4 " Tab config
 set shiftwidth=4
 set expandtab
 set number
-noremap <leader>cr :pyf /usr/bin/clang-rename.py<cr> " Clang rename
-map <C-I> :pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<cr> " Clang format
-imap <C-I> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.9.py<cr> " Clang format 
+
+" Clang tooling
+noremap <leader>cr :pyf /home/snews/Bin/clang-rename.py<cr> " Clang rename
+map <C-I> :pyf /home/snews/Bin/clang-format.py<cr>
+imap <C-I> <c-o>:pyf /home/snews/Bin/clang-format.py<cr>
+
 
 " YCM Config
 let g:ycm_complete_in_comments=0
