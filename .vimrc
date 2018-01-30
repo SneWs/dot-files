@@ -117,7 +117,7 @@ let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
 nnoremap <leader>jg :YcmCompleter GoTo<CR>
 nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>jf : YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>jt :YcmCompleter GetType<CR>
 
 " Toggle h/cpp
@@ -135,7 +135,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=Hack\ 10
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
     set guioptions -=T
     set guioptions -=L
 endif
