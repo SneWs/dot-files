@@ -143,7 +143,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
     set guioptions -=T
     set guioptions -=L
 endif
@@ -160,3 +160,6 @@ set cmdheight=2
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
 
+" Tweak the selection highlight
+"hi Visual  guifg=#FF0000 guibg=#333333 gui=none 
+highlight Visual cterm=bold ctermbg=Blue ctermfg=Black 
