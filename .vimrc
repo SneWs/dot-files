@@ -57,6 +57,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'craigemery/vim-autotag'
+Plugin 'arrufat/vala.vim'
 
 " Git integration
 Plugin 'tpope/vim-fugitive'
@@ -152,6 +153,9 @@ set cmdheight=2
 
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
+
+" disable folding
+set nofoldenable
 
 " Tweak the selection highlight
 "hi Visual  guifg=#FF0000 guibg=#333333 gui=none 
