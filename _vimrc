@@ -39,6 +39,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Themes
 Plugin 'flazz/vim-colorschemes'
+Plugin 'derekmcloughlin/gvimfullscreen_win32'
 
 " Language extensions
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -78,6 +79,9 @@ let g:Powerline_symbols='unicode'
 
 " Statusbar config
 set laststatus=2
+
+" Windows tweaks
+map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
 " NERDTree config
 map <F2> :NERDTreeToggle<CR>
