@@ -139,9 +139,10 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
+    set guifont=SourceCodeProForPowerline-Regular
     set guioptions -=T
     set guioptions -=L
+    set guioptions-=r
 endif
 
 "Move the preview window (code documentation) to the bottom of the screen, so it doesn't move the code!
