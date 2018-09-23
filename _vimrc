@@ -71,6 +71,10 @@ filetype on
 " Disable automatic insertion of new lines since it's bonkers behavior.
 set textwidth=0 wrapmargin=0
 
+" Enable hybrid line numbers
+set number
+set relativenumber
+
 " Colors and other visual goodies
 colorscheme molokai_dark
 let g:airline_theme='badwolf'
@@ -131,8 +135,10 @@ let g:vim_markdown_toc_autofit = 1
 " GVim
 if has("gui_running")
     set guifont=Source_Code_Pro_for_Powerline:h10
-    set guioptions -=T
-    set guioptions -=L
+    set guioptions-=T
+    set guioptions-=L
+    set guioptions-=m
+    set guioptions-=r
 endif
 
 "Move the preview window (code documentation) to the bottom of the screen, so it doesn't move the code!
