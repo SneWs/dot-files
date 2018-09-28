@@ -42,6 +42,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'derekmcloughlin/gvimfullscreen_win32'
 
 " Language extensions
+Plugin 'SirVer/ultisnips'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -103,6 +104,7 @@ set shiftwidth=4
 set expandtab
 set number
 
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 noremap <leader>cr :pyf clang-rename.py<cr> " Clang rename
 map <C-I> :pyf clang-format.py<cr> " Clang format
 imap <C-I> <c-o>:pyf clang-format.py<cr> " Clang format 
@@ -320,4 +322,12 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
+
+" UltiSnip
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
 
