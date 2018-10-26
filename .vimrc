@@ -181,9 +181,7 @@ set completeopt=longest,menuone
 " There is a performance penalty with this (especially on Mono).
 " By default, only Type/Method signatures are fetched. Full documentation can
 " still be fetched when you need it with the :OmniSharpDocumentation command.
-"let g:omnicomplete_fetch_full_documentation = 1
-
-let g:OmniSharp_want_snippetted_completions=1
+let g:omnicomplete_fetch_full_documentation = 0
 
 " Show type information automatically when the cursor stops moving
 autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
@@ -237,7 +235,7 @@ nnoremap <Leader>sp :OmniSharpStopServer<CR>
 nnoremap <Leader>th :OmniSharpHighlightTypes<CR>
 
 " Enable snippet completion
-let g:OmniSharp_want_snippet=1
+let g:OmniSharp_want_snippet=0
 
 " NeoComplete
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
