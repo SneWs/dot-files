@@ -51,6 +51,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Themes
 Plugin 'flazz/vim-colorschemes'
+Plugin 'whatyouhide/vim-gotham'
 
 " Language extensions
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -83,8 +84,8 @@ filetype on
 set textwidth=0 wrapmargin=0
 
 " Colors and other visual goodies
-colorscheme molokai_dark
-let g:airline_theme='badwolf'
+colorscheme gotham256
+let g:airline_theme='gotham256'
 let g:airline_powerline_fonts=1
 let g:Powerline_symbols='unicode'
 
