@@ -42,7 +42,6 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'derekmcloughlin/gvimfullscreen_win32'
 
 " Language extensions
-Plugin 'SirVer/ultisnips'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -55,6 +54,7 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/neocomplete.vim'
 Bundle 'OmniSharp/omnisharp-vim'
+Plugin 'w0rp/ale'
 
 " File handling
 Plugin 'kien/ctrlp.vim'
@@ -105,21 +105,6 @@ set expandtab
 set number
 
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-noremap <leader>cr :pyf clang-rename.py<cr> " Clang rename
-map <C-I> :pyf clang-format.py<cr> " Clang format
-imap <C-I> <c-o>:pyf clang-format.py<cr> " Clang format 
-
-" YCM Config
-let g:ycm_complete_in_comments=0
-let g:ycm_collect_identifiers_from_tags_files=1
-"set completeopt-=preview
-let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_cache_omnifunc=0
-let g:ycm_seed_identifiers_with_syntax=1
-nnoremap <leader>jg :YcmCompleter GoTo<CR>
-nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>jf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>jt :YcmCompleter GetType<CR>
 
 " Toggle h/cpp
 nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
@@ -155,15 +140,29 @@ set cmdheight=2
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
 
+" Ctrl-P tweaks
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
 " Tweak the selection highlight
 "hi Visual  guifg=#FF0000 guibg=#333333 gui=none 
-highlight Visual cterm=bold ctermbg=Blue ctermfg=Black 
+"highlight Visual cterm=bold ctermbg=Blue ctermfg=Black 
 
 " =============================
 " OmniSharp config...
 " =============================
+" Use the stdio OmniSharp-roslyn server
+let g:OmniSharp_server_stdio = 1
+
 " Set the type lookup function to use the preview window instead of echoing it
-let g:OmniSharp_typeLookupInPreview = 1
+"let g:OmniSharp_typeLookupInPreview = 1
 
 " Timeout in seconds to wait for a response from the server
 let g:OmniSharp_timeout = 5
@@ -173,23 +172,31 @@ let g:OmniSharp_timeout = 5
 " don't want to see any documentation whatsoever.
 set completeopt=longest,menuone
 
+let g:OmniSharp_selector_ui = 'ctrlp'
+
 " Fetch full documentation during omnicomplete requests.
-" There is a performance penalty with this (especially on Mono).
 " By default, only Type/Method signatures are fetched. Full documentation can
 " still be fetched when you need it with the :OmniSharpDocumentation command.
-"let g:omnicomplete_fetch_full_documentation = 1
-
-let g:OmniSharp_want_snippetted_completions=1
+let g:omnicomplete_fetch_full_documentation = 1
 
 " Show type information automatically when the cursor stops moving
 autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
 
+" Set desired preview window height for viewing documentation.
+" You might also want to look at the echodoc plugin.
+set previewheight=8
+
+" Tell ALE to use OmniSharp for linting C# files, and no other linters.
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+
+" Update symantic highlighting on BufEnter and InsertLeave
+let g:OmniSharp_highlight_types = 2
+
 augroup omnisharp_commands
     autocmd!
 
-    " When Syntastic is available but not ALE, automatic syntax check on events
-    " (TextChanged requires Vim 7.4)
-    " autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+    " Show type information automatically when the cursor stops moving
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
 
     " The following commands are contextual, based on the cursor position.
     autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
@@ -206,10 +213,12 @@ augroup omnisharp_commands
     autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
     autocmd FileType cs inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
 
-
     " Navigate up and down by method/property/field
     autocmd FileType cs nnoremap <buffer> <C-k> :OmniSharpNavigateUp<CR>
     autocmd FileType cs nnoremap <buffer> <C-j> :OmniSharpNavigateDown<CR>
+
+    " Find all code errors/warnings for the current solution and populate the quickfix window
+    autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 augroup END
 
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
@@ -219,7 +228,7 @@ xnoremap <Leader><Space> :call OmniSharp#GetCodeActions('visual')<CR>
 
 " Rename with dialog
 nnoremap <Leader>nm :OmniSharpRename<CR>
-nnoremap <F6> :OmniSharpRename<CR>
+"nnoremap <F2> :OmniSharpRename<CR>
 " Rename without dialog - with cursor on the symbol to rename: `:Rename newname`
 command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
 
@@ -229,23 +238,19 @@ nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
 nnoremap <Leader>ss :OmniSharpStartServer<CR>
 nnoremap <Leader>sp :OmniSharpStopServer<CR>
 
-" Add syntax highlighting for types and interfaces
-nnoremap <Leader>th :OmniSharpHighlightTypes<CR>
+nnoremap <c-u><c-d> :OmniSharpRunTestFixture<cr>
 
-" Enable snippet completion
-let g:OmniSharp_want_snippet=1
-
-" NeoComplete
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Neocomplete setup/config
+"
+"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+let g:acp_enableAtStartup = 1
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#sources#syntax#min_keyword_length = 1
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
@@ -268,32 +273,20 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
+inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
@@ -313,21 +306,7 @@ autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
-
-" UltiSnip
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-
-
+"
