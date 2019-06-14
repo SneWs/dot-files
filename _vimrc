@@ -40,6 +40,7 @@ Plugin 'vim-airline/vim-airline-themes'
 " Themes
 Plugin 'flazz/vim-colorschemes'
 Plugin 'derekmcloughlin/gvimfullscreen_win32'
+Plugin 'morhetz/gruvbox'
 
 " Language extensions
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -77,8 +78,8 @@ set number
 set relativenumber
 
 " Colors and other visual goodies
-colorscheme molokai_dark
-let g:airline_theme='badwolf'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
 let g:Powerline_symbols='unicode'
 
@@ -121,10 +122,10 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=Source_Code_Pro_for_Powerline:h10
+    set guifont=mononoki:h11
     set guioptions-=T
     set guioptions-=L
-    set guioptions-=m
+    "set guioptions-=m
     set guioptions-=r
 endif
 
