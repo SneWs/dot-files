@@ -84,8 +84,8 @@ filetype on
 set textwidth=0 wrapmargin=0
 
 " Colors and other visual goodies
-colorscheme gotham256
-let g:airline_theme='gotham256'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
 let g:Powerline_symbols='unicode'
 
