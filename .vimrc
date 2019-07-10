@@ -70,6 +70,7 @@ Plugin 'Shougo/neocomplete.vim'
 
 " File handling
 Plugin 'kien/ctrlp.vim'
+Plugin 'jremmen/vim-ripgrep'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -141,7 +142,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=Ubuntu\ Mono\ 12
+    set guifont=Hack\ 10
     set guioptions -=T
     set guioptions -=L
 endif
