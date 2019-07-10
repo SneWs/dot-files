@@ -52,6 +52,7 @@ Plugin 'vim-airline/vim-airline-themes'
 " Themes
 Plugin 'flazz/vim-colorschemes'
 Plugin 'whatyouhide/vim-gotham'
+Plugin 'morhetz/gruvbox'
 
 " Language extensions
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -84,8 +85,8 @@ filetype on
 set textwidth=0 wrapmargin=0
 
 " Colors and other visual goodies
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
+colorscheme gotham256 
+let g:airline_theme='gotham256'
 let g:airline_powerline_fonts=1
 let g:Powerline_symbols='unicode'
 
@@ -140,7 +141,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
+    set guifont=Ubuntu\ Mono\ 12
     set guioptions -=T
     set guioptions -=L
 endif
