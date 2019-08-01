@@ -1,5 +1,7 @@
 set nocompatible
 
+language en_US.utf8
+
 " Encodings
 set encoding=utf-8
 set fileencoding=utf-8
@@ -142,6 +144,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
+    set langmenu=en_US.UTF-8  
     set guifont=Hack\ 10
     set guioptions -=T
     set guioptions -=L
