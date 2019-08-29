@@ -120,6 +120,9 @@ set backspace=indent,eol,start
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 
+" Clipboard tweaks
+set clipboard=unnamedplus,unnamed
+
 " GVim
 if has("gui_running")
     set guifont=mononoki:h11
