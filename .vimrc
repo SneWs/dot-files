@@ -1,7 +1,5 @@
 set nocompatible
 
-language en_US.utf8
-
 " Encodings
 set encoding=utf-8
 set fileencoding=utf-8
@@ -67,7 +65,7 @@ Plugin 'arrufat/vala.vim'
 Plugin 'tpope/vim-fugitive'
 
 " Intellisense
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/neocomplete.vim'
 
 " File handling
@@ -145,7 +143,7 @@ let g:vim_markdown_toc_autofit = 1
 " GVim
 if has("gui_running")
     set langmenu=en_US.UTF-8  
-    set guifont=Hack\ 10
+    set guifont=SourceCodeProForPowerline-Regular:h11
     set guioptions -=T
     set guioptions -=L
 endif
