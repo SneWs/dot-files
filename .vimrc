@@ -143,7 +143,7 @@ let g:vim_markdown_toc_autofit = 1
 " GVim
 if has("gui_running")
     set langmenu=en_US.UTF-8  
-    set guifont=SourceCodeProForPowerline-Regular:h11
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
     set guioptions -=T
     set guioptions -=L
 endif
