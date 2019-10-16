@@ -68,7 +68,7 @@ Plugin 'tpope/vim-fugitive'
 " Intellisense
 
 " Ultisnips
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/neocomplete.vim'
@@ -188,7 +188,7 @@ let g:ctrlp_custom_ignore = {
 let g:OmniSharp_server_stdio = 1
 
 " Set the type lookup function to use the preview window instead of echoing it
-"let g:OmniSharp_typeLookupInPreview = 1
+let g:OmniSharp_typeLookupInPreview = 1
 
 " Timeout in seconds to wait for a response from the server
 let g:OmniSharp_timeout = 5
@@ -196,7 +196,10 @@ let g:OmniSharp_timeout = 5
 " Don't autoselect first omnicomplete option, show options even if there is only
 " one (so the preview documentation is accessible). Remove 'preview' if you
 " don't want to see any documentation whatsoever.
-set completeopt=longest,menuone,preview
+set completeopt=menuone,noinsert,noselect,preview
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 0
+let g:asyncomplete_force_refresh_on_context_changed = 1
 
 let g:OmniSharp_selector_ui = 'ctrlp'
 
@@ -216,7 +219,7 @@ set previewheight=8
 let g:ale_linters = { 'cs': ['OmniSharp'] }
 
 " Update symantic highlighting on BufEnter and InsertLeave
-let g:OmniSharp_highlight_types = 2
+let g:OmniSharp_highlight_types = 0 " Was 2
 
 augroup omnisharp_commands
     autocmd!
@@ -247,7 +250,7 @@ augroup omnisharp_commands
     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 augroup END
 " Enable snippet completion
-let g:OmniSharp_want_snippet=0
+let g:OmniSharp_want_snippet=1
 
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
 nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
@@ -340,5 +343,5 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
