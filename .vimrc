@@ -51,7 +51,6 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Themes
 
-Plugin 'whatyouhide/vim-gotham'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'derekmcloughlin/gvimfullscreen_win32'
 Plugin 'morhetz/gruvbox'
@@ -97,10 +96,14 @@ set number
 set relativenumber
 
 " Colors and other visual goodies
-colorscheme gotham256
+colorscheme gruvbox
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
 let g:Powerline_symbols='unicode'
+
+" Make gruvbox use dark mode.
+set background=dark
+let g:gruvbox_contrast_dark='medium'
 
 " Statusbar config
 set laststatus=2
