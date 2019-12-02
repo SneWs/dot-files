@@ -63,7 +63,7 @@ Plugin 'arrufat/vala.vim'
 Plugin 'tpope/vim-fugitive'
 
 " Intellisense
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/neocomplete.vim'
 Bundle 'OmniSharp/omnisharp-vim'
 
@@ -112,18 +112,6 @@ noremap <leader>cr :pyf clang-rename.py<cr> " Clang rename
 map <C-I> :pyf clang-format.py<cr> " Clang format
 imap <C-I> <c-o>:pyf clang-format.py<cr> " Clang format 
 
-" YCM Config
-let g:ycm_complete_in_comments=0
-let g:ycm_collect_identifiers_from_tags_files=1
-"set completeopt-=preview
-let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_cache_omnifunc=0
-let g:ycm_seed_identifiers_with_syntax=1
-nnoremap <leader>jg :YcmCompleter GoTo<CR>
-nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>jf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>jt :YcmCompleter GetType<CR>
-
 " Toggle h/cpp
 nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
@@ -139,7 +127,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " GVim
 if has("gui_running")
-    set guifont=SourceCodeProForPowerline-Regular
+    set guifont=SourceCodeProForPowerline-Regular:h14
     set guioptions -=T
     set guioptions -=L
     set guioptions-=r
