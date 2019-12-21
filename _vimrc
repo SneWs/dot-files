@@ -125,7 +125,7 @@ set clipboard=unnamedplus,unnamed
 
 " GVim
 if has("gui_running")
-    set guifont=mononoki:h11
+    set guifont=Source_Code_Pro_for_Powerline:h12:cANSI
     set guioptions-=T
     set guioptions-=L
     "set guioptions-=m
