@@ -60,6 +60,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'craigemery/vim-autotag'
+Plugin 'rust-lang/rust.vim'
 
 " Git integration
 Plugin 'tpope/vim-fugitive'
@@ -67,7 +68,7 @@ Plugin 'tpope/vim-fugitive'
 " Intellisense
 
 " Ultisnips
-" Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/neocomplete.vim'
@@ -150,7 +151,7 @@ set clipboard=unnamedplus,unnamed
 
 " GVim
 if has("gui_running")
-    set guifont=mononoki:h11
+    let &guifont="Ubuntu Mono derivative Powerline:h14"
     set guioptions-=T
     set guioptions-=L
     "set guioptions-=m
@@ -171,7 +172,7 @@ set hidden
 
 " Ctrl-P tweaks
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.dll  " Windows
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
@@ -253,7 +254,7 @@ augroup omnisharp_commands
     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
 augroup END
 " Enable snippet completion
-let g:OmniSharp_want_snippet=1
+let g:OmniSharp_want_snippet=0
 
 " Contextual code actions (uses fzf, CtrlP or unite.vim when available)
 nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
