@@ -1,0 +1,8 @@
+gnome.wallpaper: /home/marcus/Pictures/Wallpaper.png
+i3-wm.gaps.inner.size: 12
+
+St.font: Source Code Pro:pixelsize=20:antialias=true:autohint=true
+i3-wm.bar.font: pango:Source Code Pro Medium 14, Material Design Icons 14
+i3-wm.font:     pango:Source Code Pro Medium 24
+i3xrocks.value.font:    Source Code Pro Medium 14
+rofi.font:      Source Code Pro Medium 20
