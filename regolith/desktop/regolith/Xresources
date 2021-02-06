@@ -1,0 +1,10 @@
+gnome.terminal.font: Source Code Pro 14
+i3-wm.gaps.inner.size: 12
+gnome.wallpaper: /home/marcus/Pictures/wallpaper.png
+
+i3-wm.workspace.01.name: 1: Daily
+i3-wm.workspace.02.name: 2: Coms
+i3-wm.workspace.03.name: 3: Server
+i3-wm.workspace.04.name: 4: Unity
+i3-wm.workspace.08.name: 8: Music
+i3-wm.workspace.09.name: 9: VMs
