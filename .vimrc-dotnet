@@ -45,6 +45,9 @@ Plugin 'mihaifm/bufstop'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" Search
+Plugin 'jremmen/vim-ripgrep'
+
 " Sweet status bar
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -112,6 +115,9 @@ let g:NERDTreeQuitOnOpen = 1
 " Ctrl-P tweaks
 let g:ctrlp_max_files=0
 
+" Omnisharp binary override
+let g:OmniSharp_server_path = '/Users/marcus/.omnisharp/run'
+
 " Coding
 syntax on
 set tabstop=4 " Tab config
@@ -139,7 +145,7 @@ set clipboard=unnamedplus,unnamed
 
 " GVim
 if has("gui_running")
-    set guifont=Ubuntu\ Mono\ 14
+    set guifont=Hack-Regular:h14
     set guioptions-=T
     set guioptions-=L
     "set guioptions-=m
