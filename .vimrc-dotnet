@@ -115,9 +115,6 @@ let g:NERDTreeQuitOnOpen = 1
 " Ctrl-P tweaks
 let g:ctrlp_max_files=0
 
-" Omnisharp binary override
-let g:OmniSharp_server_path = '/Users/marcus/.omnisharp/run'
-
 " Coding
 syntax on
 set tabstop=4 " Tab config
@@ -234,20 +231,18 @@ augroup omnisharp_commands
     " any other messages in this space including e.g. ALE linting messages.
     autocmd CursorHold *.cs OmniSharpTypeLookup
 
-    " The following commands are contextual, based on the cursor position.
     autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
     autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
     autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
     autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
     autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
-    autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr> "finds members in the current buffer
-    " cursor can be anywhere on the line containing an issue 
+    autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
     autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<cr>  
     autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
     autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
     autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
-    autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr> "navigate up by method/property/field
-    autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr> "navigate down by method/property/field
+    autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
+    autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
 
     " Find all code errors/warnings for the current solution and populate the quickfix window
     autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
