@@ -142,7 +142,7 @@ set clipboard=unnamedplus,unnamed
 
 " GVim
 if has("gui_running")
-    set guifont=Hack-Regular:h14
+    set guifont=Hack\ 12
     set guioptions-=T
     set guioptions-=L
     "set guioptions-=m
