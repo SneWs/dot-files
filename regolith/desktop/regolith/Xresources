@@ -1,5 +1,5 @@
 i3-wm.gaps.inner.size: 12
-gnome.wallpaper: /home/marcus/Pictures/wallpaper.png
+gnome.wallpaper: /home/marcus/Pictures/wallpaper.jpeg
 
 i3-wm.workspace.01.name: 1: Daily
 i3-wm.workspace.02.name: 2: Coms

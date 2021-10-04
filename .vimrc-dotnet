@@ -288,3 +288,7 @@ autocmd FileType cshtml setlocal omnifunc=OmniSharp#Complete
 
 set secure
 
+" Set terminal vim BG to transparent
+hi Normal ctermbg=NONE
+
+
