@@ -2,13 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/marcus/.oh-my-zsh"
 
 case `uname` in
   Darwin)
+    export ZSH="/Users/marcus/.oh-my-zsh"
     export PATH="/usr/local/sbin:$PATH"
   ;;
   Linux)
+    export ZSH="/home/marcus/.oh-my-zsh"
   ;;
 esac
 
