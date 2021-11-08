@@ -3,6 +3,5 @@
 	name = Marcus Grenängen
 [core]
 	editor = vim
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+[submodule]
+	recurse = true
