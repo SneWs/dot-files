@@ -182,6 +182,9 @@ let g:ctrlp_custom_ignore = {
 "hi Visual  guifg=#FF0000 guibg=#333333 gui=none 
 "highlight Visual cterm=bold ctermbg=Blue ctermfg=Black 
 
+set hlsearch!
+noremap <leader>ha :set hlsearch! hlsearch?<CR>
+
 " =============================
 " OmniSharp config...
 " =============================
