@@ -142,7 +142,7 @@ set clipboard=unnamedplus,unnamed
 
 " GVim
 if has("gui_running")
-    set guifont=CaskaydiaCove\ NF\ 12
+    set guifont=CaskaydiaCoveNerdFontComplete-:h14
     set guioptions-=T
     set guioptions-=L
     "set guioptions-=m
