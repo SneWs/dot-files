@@ -119,3 +119,6 @@ alias gcod="git checkout develop"
 alias gcoq="git checkout qa"
 alias gcop="git checkout prod"
 
+# Helpers
+alias idgen="uuidgen | tr -d '-'"
+
