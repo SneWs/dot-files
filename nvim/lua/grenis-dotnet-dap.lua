@@ -1,8 +1,9 @@
 local dap, dapui = require("dap"), require("dapui")
 
+-- NOTE: Make sure to have netcoredbg in PATH
 dap.adapters.coreclr = {
   type = 'executable',
-  command = '/Users/marcus/Downloads/netcoredbg/netcoredbg',
+  command = 'netcoredbg',
   args = {'--interpreter=vscode'}
 }
 
@@ -12,7 +13,8 @@ dap.configurations.cs = {
     name = "launch - netcoredbg",
     request = "launch",
     program = function()
-        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/net6.0/', 'file')
+      -- TODO: Find path based on sln or csproj files
+        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/net7.0/', 'file')
     end,
   },
 }
