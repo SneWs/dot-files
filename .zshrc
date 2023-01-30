@@ -112,8 +112,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vim=nvim
+
 alias gpa="ls | xargs -P10 -I{} git -C {} pull -r"
 alias gp="git pull -r"
+alias gpu="git push"
+alias gco="git commit"
 
 alias gcod="git checkout develop"
 alias gcoq="git checkout qa"
