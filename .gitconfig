@@ -2,10 +2,14 @@
 	email = marcus@grenangen.se
 	name = Marcus Grenängen
 [core]
-	editor = vim
+	editor = nvim
+	ignorecase = false
 [submodule]
 	recurse = true
 [credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
 	helper = 
 	helper = !gh auth git-credential
 [filter "lfs"]
