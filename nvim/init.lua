@@ -1,6 +1,7 @@
 require('grenis-packer')
 require('grenis-basics')
 require('grenis-configs')
+require('grenis-ripgrep')
 require('grenis-telescope')
 require('grenis-treesitter')
 require('grenis-keys')

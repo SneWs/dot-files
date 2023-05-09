@@ -43,6 +43,10 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
+  use { -- RipGrep
+    'duane9/nvim-rg'
+  }
+
  use {
   'nvim-tree/nvim-tree.lua',
    requires = {
