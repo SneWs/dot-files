@@ -1,1 +1,0 @@
-docker run -d -p 0.0.0.0:8080:80 -v /media/Green/Nextcloud/Data:/var/www/html/data:delegated -v /media/Green/Nextcloud/CustomApps:/var/www/html/custom_apps:delegated -v /media/Green/Nextcloud/Config:/var/www/html/config:delegated -v /media/Green/Nextcloud/Themes:/var/www/html/themes:delegated --restart unless-stopped nextcloud 
