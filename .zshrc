@@ -126,4 +126,5 @@ alias dotb="dotnet build"
 
 # Helpers
 alias idgen="uuidgen | tr -d '-'"
-
+alias open=xdg-open
+alias vim=nvim
