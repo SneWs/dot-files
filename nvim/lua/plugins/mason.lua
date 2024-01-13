@@ -19,7 +19,7 @@ return {
           local capabilities = require("cmp_nvim_lsp").default_capabilities()
           local lspconfig = require("lspconfig")
           require("mason-lspconfig").setup({
-              automatic_installation = true,
+              automatic_installation = false,
               ensure_installed = {
                   "lua_ls",
                   "cssls",
@@ -28,7 +28,8 @@ return {
                   "jsonls",
                   "tailwindcss",
                   "yamlls",
-                  "csharp_ls",
+                  "omnisharp",
+                  "clangd"
               }
           })
 
@@ -38,6 +39,21 @@ return {
 
           lspconfig.csharp_ls.setup({
               capabilities = capabilities
+          })
+
+          lspconfig.clangd.setup({
+              cmd = {
+                "clangd",
+                "--pretty",
+                "--header-insertion=iwyu",
+                "--background-index",
+                "--suggest-missing-includes",
+                "-j=12",
+                "--pch-storage=memory",
+                "--clang-tidy",
+                "--compile-commands-dir=.",
+            },
+            filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
           })
 
           vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
