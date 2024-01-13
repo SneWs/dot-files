@@ -76,6 +76,7 @@ CASE_SENSITIVE="true"
 
 # Grenis mods
 ZSH_DISABLE_COMPFIX=true
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
