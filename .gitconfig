@@ -3,7 +3,7 @@
 	name = Marcus Grenängen
 [core]
 	editor = nvim
-	ignorecase = false
+	ignorecase = true
 [submodule]
 	recurse = true
 [credential "https://github.com"]
