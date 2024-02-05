@@ -1,12 +1,16 @@
 return {
   {
-    "savq/melange-nvim",
+    "folke/tokyonight.nvim",
     lazy = false,
-    name = "melange",
     priority = 1000,
+    transparent_background = true, -- disables setting the background color.
+    show_end_of_buffer = false,
+    style = "storm",
+    transparent = true,
+    terminal_colors = true,
     config = function()
-        vim.opt.termguicolors = true
-        vim.cmd.colorscheme "melange"
+        vim.opt.termguicolors = false
+        vim.cmd.colorscheme "tokyonight-night"
     end
   }
 }
