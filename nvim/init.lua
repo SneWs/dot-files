@@ -60,5 +60,14 @@ require("lazy").setup("plugins")
 
 require("nvim-dap-projects").search_project_config()
 
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+vim.keymap.set("n", "gI", vim.lsp.buf.implementation)
+vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition)
+vim.keymap.set("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols)
+vim.keymap.set("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols)
 vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {})
 
