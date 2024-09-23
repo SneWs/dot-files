@@ -58,6 +58,7 @@ return {
               max_value_lines = 100, -- Can be integer or nil.
           },
         })
+
 		require("dap-go").setup()
 
 		local dap, dapui = require("dap"), require("dapui")
@@ -75,10 +76,15 @@ return {
 			dapui.close()
 		end
 
-		vim.keymap.set("n", "<Leader>dt", ":DapToggleBreakpoint<CR>")
-		vim.keymap.set("n", "<Leader>dc", ":DapContinue<CR>")
-		vim.keymap.set("n", "<Leader>dx", ":DapTerminate<CR>")
-		vim.keymap.set("n", "<Leader>do", ":DapStepOver<CR>")
-        vim.keymap.set("n", '<Leader>di', ":DapStepInto<CR>")
+		vim.keymap.set("n", "<F9>", ":DapToggleBreakpoint<CR>")
+		vim.keymap.set("n", "<F5>", ":DapContinue<CR>")
+		vim.keymap.set("n", "<sc-F5>", ":DapTerminate<CR>")
+		vim.keymap.set("n", "<F10>", ":DapStepOver<CR>")
+        vim.keymap.set("n", '<F11>', ":DapStepInto<CR>")
+		-- vim.keymap.set("n", "<Leader>dt", ":DapToggleBreakpoint<CR>")
+		-- vim.keymap.set("n", "<Leader>dc", ":DapContinue<CR>")
+		-- vim.keymap.set("n", "<Leader>dx", ":DapTerminate<CR>")
+		-- vim.keymap.set("n", "<Leader>do", ":DapStepOver<CR>")
+        -- vim.keymap.set("n", '<Leader>di', ":DapStepInto<CR>")
 	end,
 }

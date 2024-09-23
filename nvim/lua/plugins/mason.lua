@@ -41,6 +41,10 @@ return {
               filetypes = { "go" },
           })
 
+          lspconfig.gopls.setup({
+              capabilities = capabilities
+          })
+
           lspconfig.clangd.setup({
               cmd = {
                 "clangd",
