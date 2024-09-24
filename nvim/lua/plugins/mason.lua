@@ -27,11 +27,13 @@ return {
           })
 
           lspconfig.lua_ls.setup({
-              capabilities = capabilities
+              capabilities = capabilities,
+              filetypes = { "lua" },
           })
 
           lspconfig.csharp_ls.setup({
-              capabilities = capabilities
+              capabilities = capabilities,
+              filetypes = { "cs" },
           })
 
           lspconfig.clangd.setup({
