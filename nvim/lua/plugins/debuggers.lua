@@ -68,7 +68,7 @@ return {
 
         dap.adapters.coreclr = {
             type = "executable",
-            command = "netcoredbg",
+            command = os.getenv("NETCORE_DBG_BINARY") or "netcoredbg",
             args = {"--interpreter=vscode"}
         }
 
