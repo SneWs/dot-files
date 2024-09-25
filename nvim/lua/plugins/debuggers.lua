@@ -3,6 +3,8 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"leoluz/nvim-dap-go",
+        "nicholasmata/nvim-dap-cs",
+        "mfussenegger/nvim-dap",
 		"rcarriga/nvim-dap-ui",
 	},
 	config = function()
@@ -59,7 +61,11 @@ return {
           },
         })
 
+        -- Go debugging
 		require("dap-go").setup()
+
+        -- Dotnet debugging
+        require("dap-cs").setup()
 
 		local dap, dapui = require("dap"), require("dapui")
 
