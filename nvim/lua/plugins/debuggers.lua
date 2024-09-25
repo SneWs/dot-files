@@ -61,13 +61,41 @@ return {
           },
         })
 
+		local dap, dapui = require("dap"), require("dapui")
+
         -- Go debugging
 		require("dap-go").setup()
 
-        -- Dotnet debugging
-        require("dap-cs").setup()
+        dap.adapters.coreclr = {
+            type = "executable",
+            command = "netcoredbg",
+            args = {"--interpreter=vscode"}
+        }
 
-		local dap, dapui = require("dap"), require("dapui")
+        dap.configurations.cs = {
+            {
+                type = "coreclr",
+                name = "launch - netcoredbg",
+                request = "launch",
+                cwd = function()
+                    local path = os.getenv("DOTNET_DBG_PATH")
+                    if path == nil then
+                        print("DOTNET_DBG_PATH is not set, falling back to nvim cwd")
+                        path = vim.fn.getcwd()
+                    end
+
+                    return path
+                end,
+                program = function()
+                    local progPath = os.getenv("DOTNET_DBG_DLL")
+                    if progPath == nil then
+                        print("DOTNET_DBG_DLL is not set")
+                    end
+
+                    return progPath
+                end,
+              },
+        }
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
