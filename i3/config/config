@@ -16,7 +16,7 @@ set $mod Mod4
 font pango:"CaskaydiaCove NFM 12"
 
 # Fix some DPI scalings
-exec "xrandr --dpi 192"
+exec --no-startup-id xrandr --dpi 192
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -236,22 +236,18 @@ exec --no-startup-id nm-applet
 exec_always --no-startup-id pulseaudio
 
 # Fix background image
-#exec_always --no-startup-id feh --bg-scale /home/snews/Pictures/flying-batman-arkham-knight-5120x3200.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/SCR-20240919-ufde.png
 
-# Applications
+# Applications that maps to a specific workspace
 for_window [class="Firefox"] move container to workspace $wspace2 
-for_window [class="Thorium Browser"] move container to workspace $wspace2 
-#exec --no-startup-id firefox
-
-for_window [class="Thunderbird"] move container to workspace $wspace4 
-#exec --no-startup-id thunderbird 
-
-for_window [class="QtCreator"] move container to workspace $wspace3
-#exec --no-startup-id qtcreator 
-
+for_window [class="Thorium"] move container to workspace $wspace2 
 for_window [class="Spotify"] move container to workspace $wspace10
-#exec --no-startup-id spotify 
 
+# Any apps that should auto start
+exec i3-sensible-terminal
+
+#exec --no-startup-id spotify 
+#exec --no-startup-id firefox
 
 
 
