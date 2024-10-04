@@ -18,10 +18,8 @@ return {
                       hide_dotfiles = false,
                       hide_gitignored = false
                   },
+                  follow_current_file = { enabled = true },
               },
-              --update_focused_file = {
-              --    enable = true,
-              --},
           })
 	    end
     }
