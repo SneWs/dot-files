@@ -74,3 +74,7 @@ vim.keymap.set("n", "<leader>ds", require("telescope.builtin").lsp_document_symb
 vim.keymap.set("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols)
 vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {})
 
+-- Make use of jump list to navigate between locations quickly
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>", { noremap = true })
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>", { noremap = true })
+
