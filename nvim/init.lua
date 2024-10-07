@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 
+-- Clipboard - Make sure to always sync with OS clipboard
+vim.opt.clipboard = 'unnamedplus'
+
 -- Set highlight on search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
