@@ -78,3 +78,5 @@ vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>", { noremap = true })
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>", { noremap = true })
 
+-- Fugitive git helpers
+vim.keymap.set("n", "<leader>D", "<cmd>Gvdiff<CR>", { noremap = true })
