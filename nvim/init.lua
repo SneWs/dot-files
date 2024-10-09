@@ -63,6 +63,8 @@ require("lazy").setup("plugins")
 
 require("nvim-dap-projects").search_project_config()
 
+local opts = { noremap = true, silent = true }
+
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
@@ -75,8 +77,13 @@ vim.keymap.set("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_works
 vim.api.nvim_set_keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {})
 
 -- Make use of jump list to navigate between locations quickly
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>", { noremap = true })
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>", { noremap = true })
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>", opts)
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>", opts)
 
 -- Fugitive git helpers
-vim.keymap.set("n", "<leader>D", "<cmd>Gvdiff<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>D", "<cmd>Gvdiff<CR>", opts)
+
+-- Tab handling
+vim.keymap.set("n", "<leader>T", ":tabnew<CR>", opts)
+vim.keymap.set("n", "<tab>", ":tabnext<CR>", opts)
+vim.keymap.set("n", "<s-tab>", ":tabprev<CR>", opts)
