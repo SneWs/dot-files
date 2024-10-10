@@ -32,11 +32,6 @@ return {
           })
 
           lspconfig.csharp_ls.setup({
-              root_dir = function(startpath, _)
-                  return lspconfig.util.root_pattern("*.sln")(startpath)
-                    or lspconfig.util.root_pattern("*.csproj")(startpath)
-                    or lspconfig.util.root_pattern(".git")(startpath)
-              end,
               capabilities = capabilities,
               filetypes = { "cs" },
           })
