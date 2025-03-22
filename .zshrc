@@ -129,4 +129,5 @@ alias dotb="dotnet build"
 alias idgen="uuidgen | tr -d '-'"
 alias open=xdg-open
 alias vim=nvim
+alias v=nvim
 alias neofetch=fastfetch
