@@ -41,6 +41,11 @@ return {
               filetypes = { "go" },
           })
 
+          lspconfig.ts_ls.setup({
+              capabilities = capabilities,
+              filetypes = { "typescript", "typescriptreact", "typescript.tsx", "ts" },
+          })
+
           lspconfig.gopls.setup({
               capabilities = capabilities
           })
