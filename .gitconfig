@@ -1,21 +1,30 @@
 [user]
 	email = marcus@grenangen.se
 	name = Marcus Grenängen
+
 [core]
 	editor = nvim
 	ignorecase = false
+
 [submodule]
 	recurse = true
+
 [credential "https://github.com"]
 	helper = 
 	helper = !gh auth git-credential
+
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !gh auth git-credential
+    helper = !gh auth git-credential
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	required = true
-[credential]
+    required = true
+
+[credential "https://lns.grenangen.se"]
+	provider = generic
 	credentialStore = secretservice
+	helper = 
+	helper = /home/marcus/.dotnet/tools/git-credential-manager
