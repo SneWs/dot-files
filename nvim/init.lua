@@ -87,3 +87,13 @@ vim.keymap.set("n", "<leader>D", "<cmd>Gvdiff<CR>", opts)
 vim.keymap.set("n", "<leader>T", ":tabnew<CR>", opts)
 vim.keymap.set("n", "<tab>", ":tabnext<CR>", opts)
 vim.keymap.set("n", "<s-tab>", ":tabprev<CR>", opts)
+
+-- Diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  update_in_insert = false,
+  underline = true,
+  severity_sort = false,
+  float = true,
+})
