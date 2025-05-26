@@ -27,7 +27,7 @@
 	provider = generic
 	credentialStore = secretservice
 	helper = 
-	helper = !/home/grenis/.dotnet/tools/git-credential-manager
+	helper = !git-credential-manager
 
 [credential]
 	credentialStore = secretservice
