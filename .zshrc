@@ -5,11 +5,11 @@
 
 case `uname` in
   Darwin)
-    export ZSH="/Users/marcus/.oh-my-zsh"
+    export ZSH="/Users/grenis/.oh-my-zsh"
     export PATH="/usr/local/sbin:$PATH"
   ;;
   Linux)
-    export ZSH="/home/marcus/.oh-my-zsh"
+    export ZSH="/home/grenis/.oh-my-zsh"
   ;;
 esac
 
